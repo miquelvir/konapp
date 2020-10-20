@@ -41,13 +41,13 @@ class App(_EndpointManagerObject, _ContextDictObject):
         # run infinitely (until stop is called) from the main path
         self._main_loop = True
         while self._main_loop:
-            self.run_step(_MAIN_PATH)
+            self.run_endpoint(_MAIN_PATH)
 
     def stop(self):
         """ stops the app main loop, next iteration of the loop won't be executed """
         self._main_loop = False
 
-    def run_step(self, route: str):
+    def run_endpoint(self, route: str):
         """ given a route, execute the function associated to it """
         try:
             step = self._endpoints[route]

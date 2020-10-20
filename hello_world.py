@@ -21,18 +21,18 @@ def main_menu(ctx: App = None):
     choice = int(input("> "))  # use a Menu object instead for solid Menus; still not uploaded in public
 
     if choice == 1:
-        ctx.run_step('/bugs/new')
+        ctx.run_endpoint('/bugs/new')
     elif choice == 2:
-        ctx.run_step('/bugs/solve')
+        ctx.run_endpoint('/bugs/solve')
     elif choice == 3:
-        ctx.run_step('/cry')
+        ctx.run_endpoint('/cry')
     else:
         ctx.stop()
 
 
 @app.endpoint('/cry')
 def view_default_shipment(ctx: App = None):
-    ctx["how-to-cry"] = "crying a lot"  # we can store objects to the app contextx
+    ctx["how-to-cry"] = "crying a lot"  # we can store objects to the app context
     print("crying...")
     print(ctx["how-to-cry"])  # and retrieve them, even between different endpoints
 
